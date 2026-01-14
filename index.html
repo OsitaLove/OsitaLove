@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Osita Love Cuba</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffb6c1, #ffffff, #c8a2c8);
+      color: #4a004a;
+    }
+    header {
+      text-align: center;
+      padding: 50px;
+      background-image: url('https://i.imgur.com/Njx7KPo.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 2px 2px 5px #000;
+    }
+    header p {
+      font-size: 1.5em;
+      margin-top: 10px;
+      text-shadow: 1px 1px 3px #000;
+    }
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #800080;
+    }
+    .personajes, .paquetes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      width: 250px;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .card button {
+      margin-top: 10px;
+      padding: 10px;
+      background: #ff69b4;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .card button:hover {
+      background: #800080;
+    }
+    #carrito {
+      background: #f8e6f8;
+      padding: 20px;
+      border-top: 3px solid #800080;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    #carrito ul {
+      list-style: none;
+      padding: 0;
+    }
+    #carrito li {
+      margin: 5px 0;
+    }
+    #contactar {
+      display: block;
+      margin-top: 20px;
+      padding: 15px;
+      background: #ff69b4;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    #contactar:hover {
+      background: #800080;
+    }
+    .contacto {
+      background: #f8e6f8;
+      padding: 30px;
+      border-top: 3px solid #800080;
+      text-align: center;
+    }
+    .contacto p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Osita Love Cuba</h1>
+    <p>Nos encargamos de Hacer felices a tus seres queridos</p>
+  </header>
+
+  <!-- Seccion Personajes -->
+  <section>
+    <h2>Personajes</h2>
+    <div class="personajes">
+      <div class="card">
+        <img src="https://i.imgur.com/ZnAn9Dd.jpeg" alt="Clausula de Reserva">
+        <h3>Clausula de Cancelacion</h3>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/0WREyMq.jpeg" alt="Personaje 2">
+        <h3>Osita Love Catalogo</h3>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/yBDGhmR.jpeg" alt="Personaje 3">
+        <h3>Clausula de Reserva</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion Paquetes -->
+  <section>
+    <h2>Paquetes</h2>
+    <div class="paquetes">
+      <div class="card">
+        <img src="https://i.imgur.com/1KOvEJd.jpeg" alt="Paquete 1">
+        <h3>Servicio 1</h3>
+        <p>Precio: $60</p>
+        <button onclick="agregarCarrito('Servicio 1 - $60')">Agregar</button>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/9gq1apP.jpeg" alt="Paquete 2">
+        <h3>Servicio 2</h3>
+        <p>Precio: $80</p>
+        <button onclick="agregarCarrito('Servicio 2 - $80')">Agregar</button>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/yfhVlg3.jpeg" alt="Paquete 3">
+        <h3>Servicio 3</h3>
+        <p>Precio: $80</p>
+        <button onclick="agregarCarrito('Servicio 3 - $80')">Agregar</button>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/g7iwgaL.jpeg" alt="Paquete 4">
+        <h3>Servicio 4</h3>
+        <p>Precio: $90</p>
+        <button onclick="agregarCarrito('Servicio 4 - $90')">Agregar</button>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/f9xWMbx.jpeg" alt="Paquete 5">
+        <h3>Servicio 5</h3>
+        <p>Precio: $65</p>
+        <button onclick="agregarCarrito('Servicio 5 - $65')">Agregar</button>
+      </div>
+	   <div class="card">
+        <img src="https://i.imgur.com/4cfwTdV.jpeg" alt="Paquete 5">
+        <h3>Servicio 6</h3>
+        <p>Precio: $80</p>
+        <button onclick="agregarCarrito('Servicio 6 - $80')">Agregar</button>
+      </div>
+	   <div class="card">
+        <img src="https://i.imgur.com/pYMEqJD.jpeg" alt="Paquete 5">
+        <h3>Servicio 7</h3>
+        <p>Precio: Contactar </p>
+        <button onclick="agregarCarrito('Servicio 7 - Contactar')">Agregar</button>
+      </div>
+	   <div class="card">
+        <img src="https://i.imgur.com/b5WgOq8.jpeg" alt="Paquete 5">
+        <h3>Nuestros Personajes</h3>
+        <p></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carrito -->
+  <section id="carrito">
+    <h2>Carrito de Compras</h2>
+    <ul id="listaCarrito"></ul>
+    <a id="contactar" href="#" target="_blank">Contactar por WhatsApp</a>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contacto">
+    <h2>Contacto</h2>
+    <p>WhatsApp: +53 56939025</p>
+    <p>Instagram: <a href="https://instagram.com/_osita_love_" target="_blank">@_Osita_Love</a></p>
+  </section>
+
+  <script>
+    let carrito = [];
+
+    function agregarCarrito(producto) {
+      carrito.push(producto);
+      mostrarCarrito();
+    }
+
+    function mostrarCarrito() {
+      const lista = document.getElementById('listaCarrito');
+      lista.innerHTML = '';
+      carrito.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        lista.appendChild(li);
+      });
+
+      // Generar mensaje para WhatsApp
+      const mensaje = encodeURIComponent("Hola, quiero comprar:\n" + carrito.join("\n"));
+      document.getElementById('contactar').href = "https://wa.link/u7umi0?text=" + mensaje;
+    }
+  </script>
+</body>
+</html>
