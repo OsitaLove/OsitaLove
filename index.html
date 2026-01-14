@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #ffb6c1, #ffffff, #c8a2c8);
       color: #4a004a;
+      animation: fadeIn 2s ease-in;
     }
     header {
       text-align: center;
@@ -17,6 +18,7 @@
       background-size: cover;
       background-position: center;
       color: white;
+      animation: slideDown 1.5s ease-in-out;
     }
     header h1 {
       font-size: 3em;
@@ -31,6 +33,7 @@
     section {
       padding: 40px;
       text-align: center;
+      animation: fadeUp 1.5s ease-in-out;
     }
     h2 {
       font-size: 2em;
@@ -50,13 +53,15 @@
       padding: 20px;
       width: 250px;
       transition: transform 0.3s;
+      animation: bounceIn 1s;
     }
     .card:hover {
-      transform: scale(1.05);
+      transform: scale(1.08) rotate(1deg);
     }
     .card img {
       width: 100%;
       border-radius: 10px;
+      cursor: pointer;
     }
     .card button {
       margin-top: 10px;
@@ -78,6 +83,7 @@
       text-align: left;
       max-width: 600px;
       margin: 0 auto;
+      animation: fadeUp 1.5s ease-in-out;
     }
     #carrito ul {
       list-style: none;
@@ -85,6 +91,26 @@
     }
     #carrito li {
       margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 8px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s;
+    }
+    #carrito li button {
+      background: #ff4d4d;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #carrito li button:hover {
+      background: #800000;
     }
     #contactar {
       display: block;
@@ -96,6 +122,7 @@
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
+      animation: pulse 2s infinite;
     }
     #contactar:hover {
       background: #800080;
@@ -109,6 +136,42 @@
     .contacto p {
       font-size: 1.2em;
     }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      border-radius: 10px;
+      animation: zoomIn 0.5s;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    /* Animaciones */
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes fadeUp { from {transform:translateY(30px);opacity:0;} to {transform:translateY(0);opacity:1;} }
+    @keyframes slideDown { from {transform:translateY(-50px);opacity:0;} to {transform:translateY(0);opacity:1;} }
+    @keyframes bounceIn { 0%{transform:scale(0.5);} 60%{transform:scale(1.1);} 100%{transform:scale(1);} }
+    @keyframes zoomIn { from {transform:scale(0.5);opacity:0;} to {transform:scale(1);opacity:1;} }
+    @keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.05);} 100%{transform:scale(1);} }
   </style>
 </head>
 <body>
@@ -119,18 +182,18 @@
 
   <!-- Seccion Personajes -->
   <section>
-    <h2>Personajes</h2>
+    <h2>Osita Love Clausulas y Catalogo</h2>
     <div class="personajes">
       <div class="card">
-        <img src="https://i.imgur.com/ZnAn9Dd.jpeg" alt="Clausula de Reserva">
+        <img src="https://i.imgur.com/ZnAn9Dd.jpeg" alt="Clausula de Cancelacion" onclick="ampliarImagen(this.src)">
         <h3>Clausula de Cancelacion</h3>
       </div>
       <div class="card">
-        <img src="https://i.imgur.com/0WREyMq.jpeg" alt="Personaje 2">
+        <img src="https://i.imgur.com/0WREyMq.jpeg" alt="Catalogo" onclick="ampliarImagen(this.src)">
         <h3>Osita Love Catalogo</h3>
       </div>
       <div class="card">
-        <img src="https://i.imgur.com/yBDGhmR.jpeg" alt="Personaje 3">
+        <img src="https://i.imgur.com/yBDGhmR.jpeg" alt="Clausula de Reserva" onclick="ampliarImagen(this.src)">
         <h3>Clausula de Reserva</h3>
       </div>
     </div>
@@ -140,53 +203,14 @@
   <section>
     <h2>Paquetes</h2>
     <div class="paquetes">
-      <div class="card">
-        <img src="https://i.imgur.com/1KOvEJd.jpeg" alt="Paquete 1">
-        <h3>Servicio 1</h3>
-        <p>Precio: $60</p>
-        <button onclick="agregarCarrito('Servicio 1 - $60')">Agregar</button>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/9gq1apP.jpeg" alt="Paquete 2">
-        <h3>Servicio 2</h3>
-        <p>Precio: $80</p>
-        <button onclick="agregarCarrito('Servicio 2 - $80')">Agregar</button>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/yfhVlg3.jpeg" alt="Paquete 3">
-        <h3>Servicio 3</h3>
-        <p>Precio: $80</p>
-        <button onclick="agregarCarrito('Servicio 3 - $80')">Agregar</button>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/g7iwgaL.jpeg" alt="Paquete 4">
-        <h3>Servicio 4</h3>
-        <p>Precio: $90</p>
-        <button onclick="agregarCarrito('Servicio 4 - $90')">Agregar</button>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/f9xWMbx.jpeg" alt="Paquete 5">
-        <h3>Servicio 5</h3>
-        <p>Precio: $65</p>
-        <button onclick="agregarCarrito('Servicio 5 - $65')">Agregar</button>
-      </div>
-	   <div class="card">
-        <img src="https://i.imgur.com/4cfwTdV.jpeg" alt="Paquete 5">
-        <h3>Servicio 6</h3>
-        <p>Precio: $80</p>
-        <button onclick="agregarCarrito('Servicio 6 - $80')">Agregar</button>
-      </div>
-	   <div class="card">
-        <img src="https://i.imgur.com/pYMEqJD.jpeg" alt="Paquete 5">
-        <h3>Servicio 7</h3>
-        <p>Precio: Contactar </p>
-        <button onclick="agregarCarrito('Servicio 7 - Contactar')">Agregar</button>
-      </div>
-	   <div class="card">
-        <img src="https://i.imgur.com/b5WgOq8.jpeg" alt="Paquete 5">
-        <h3>Nuestros Personajes</h3>
-        <p></p>
-      </div>
+      <div class="card"><img src="https://i.imgur.com/1KOvEJd.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 1</h3><p>Precio: $60</p><button onclick="agregarCarrito('Servicio 1 - $60')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/9gq1apP.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 2</h3><p>Precio: $80</p><button onclick="agregarCarrito('Servicio 2 - $80')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/yfhVlg3.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 3</h3><p>Precio: $80</p><button onclick="agregarCarrito('Servicio 3 - $80')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/g7iwgaL.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 4</h3><p>Precio: $90</p><button onclick="agregarCarrito('Servicio 4 - $90')">Agregar</button></div>
+            <div class="card"><img src="https://i.imgur.com/f9xWMbx.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 5</h3><p>Precio: $65</p><button onclick="agregarCarrito('Servicio 5 - $65')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/4cfwTdV.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 6</h3><p>Precio: $80</p><button onclick="agregarCarrito('Servicio 6 - $80')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/pYMEqJD.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 7</h3><p>Precio: Contactar</p><button onclick="agregarCarrito('Servicio 7 - Contactar')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/b5WgOq8.jpeg" onclick="ampliarImagen(this.src)"><h3>Nuestros Personajes</h3></div>
     </div>
   </section>
 
@@ -200,9 +224,15 @@
   <!-- Contacto -->
   <section class="contacto">
     <h2>Contacto</h2>
-    <p>WhatsApp: +53 56939025</p>
+    <p>WhatsApp: +13052822608</p>
     <p>Instagram: <a href="https://instagram.com/_osita_love_" target="_blank">@_Osita_Love</a></p>
   </section>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="cerrarModal()">&times;</span>
+    <img class="modal-content" id="imagenAmpliada">
+  </div>
 
   <script>
     let carrito = [];
@@ -212,19 +242,47 @@
       mostrarCarrito();
     }
 
+    function eliminarCarrito(index) {
+      carrito.splice(index, 1);
+      mostrarCarrito();
+    }
+
     function mostrarCarrito() {
       const lista = document.getElementById('listaCarrito');
       lista.innerHTML = '';
-      carrito.forEach(item => {
+      carrito.forEach((item, index) => {
         const li = document.createElement('li');
         li.textContent = item;
+        const btn = document.createElement('button');
+        btn.textContent = "Eliminar";
+        btn.onclick = () => eliminarCarrito(index);
+        li.appendChild(btn);
         lista.appendChild(li);
       });
 
-      // Generar mensaje para WhatsApp
       const mensaje = encodeURIComponent("Hola, quiero comprar:\n" + carrito.join("\n"));
-      document.getElementById('contactar').href = "https://wa.link/u7umi0?text=" + mensaje;
+      document.getElementById('contactar').href = "https://wa.me/13052822608?text=" + mensaje;
+    }
+
+    function ampliarImagen(src) {
+      const modal = document.getElementById("modal");
+      const img = document.getElementById("imagenAmpliada");
+      modal.style.display = "block";
+      img.src = src;
+    }
+
+    function cerrarModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
     }
   </script>
 </body>
 </html>
+
+
