@@ -19,6 +19,7 @@
       background-position: center;
       color: white;
       animation: slideDown 1.5s ease-in-out;
+      position: relative;
     }
     header h1 {
       font-size: 3em;
@@ -29,6 +30,18 @@
       font-size: 1.5em;
       margin-top: 10px;
       text-shadow: 1px 1px 3px #000;
+    }
+    /* Cuenta regresiva arriba derecha */
+    #countdown {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.85);
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: #800080;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     section {
       padding: 40px;
@@ -165,6 +178,25 @@
       font-weight: bold;
       cursor: pointer;
     }
+    /* Botón flotante WhatsApp (abajo izquierda) */
+   .whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  left: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 2px 2px 5px #000;
+  z-index: 100;
+  transition: transform 0.3s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+    }
     /* Animaciones */
     @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
     @keyframes fadeUp { from {transform:translateY(30px);opacity:0;} to {transform:translateY(0);opacity:1;} }
@@ -178,6 +210,9 @@
   <header>
     <h1>Osita Love Cuba</h1>
     <p>Nos encargamos de Hacer felices a tus seres queridos</p>
+    <div id="countdown">
+      <span id="timer"></span>
+    </div>
   </header>
 
   <!-- Seccion Personajes -->
@@ -207,10 +242,41 @@
       <div class="card"><img src="https://i.imgur.com/9gq1apP.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 2</h3><p>Precio: $80</p><button onclick="agregarCarrito('Servicio 2 - $80')">Agregar</button></div>
       <div class="card"><img src="https://i.imgur.com/yfhVlg3.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 3</h3><p>Precio: $80</p><button onclick="agregarCarrito('Servicio 3 - $80')">Agregar</button></div>
       <div class="card"><img src="https://i.imgur.com/g7iwgaL.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 4</h3><p>Precio: $90</p><button onclick="agregarCarrito('Servicio 4 - $90')">Agregar</button></div>
-            <div class="card"><img src="https://i.imgur.com/f9xWMbx.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 5</h3><p>Precio: $65</p><button onclick="agregarCarrito('Servicio 5 - $65')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/f9xWMbx.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 5</h3><p>Precio: $65</p><button onclick="agregarCarrito('Servicio 5 - $65')">Agregar</button></div>
       <div class="card"><img src="https://i.imgur.com/4cfwTdV.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 6</h3><p>Precio: $80</p><button onclick="agregarCarrito('Servicio 6 - $80')">Agregar</button></div>
       <div class="card"><img src="https://i.imgur.com/pYMEqJD.jpeg" onclick="ampliarImagen(this.src)"><h3>Servicio 7</h3><p>Precio: Contactar</p><button onclick="agregarCarrito('Servicio 7 - Contactar')">Agregar</button></div>
       <div class="card"><img src="https://i.imgur.com/b5WgOq8.jpeg" onclick="ampliarImagen(this.src)"><h3>Nuestros Personajes</h3></div>
+    </div>
+  </section>
+
+  <!-- Clausulas y Catalogo San Valentin -->
+  <section>
+    <h2>Osita Love Clausulas y Catalogo San Valentin</h2>
+    <div class="personajes">
+      <div class="card">
+        <img src="https://i.imgur.com/hudnI0T.jpeg" alt="Clausula de Cancelacion" onclick="ampliarImagen(this.src)">
+        <h3>Clausula de Cancelacion</h3>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/YuDD8b5.jpeg" alt="Catalogo" onclick="ampliarImagen(this.src)">
+        <h3>Osita Love Catalogo</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ofertas 14 de Febrero -->
+  <section>
+    <h2>Ofertas 14 de Febrero</h2>
+    <div class="paquetes">
+      <div class="card"><img src="https://i.imgur.com/i8DKqeU.jpeg" onclick="ampliarImagen(this.src)"><h3>Paquete 1</h3><p>Precio: $60</p><button onclick="agregarCarrito('Paquete 1 - $60')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/QMhwB1E.jpeg" onclick="ampliarImagen(this.src)"><h3>Paquete 2</h3><p>Precio: $120</p><button onclick="agregarCarrito('Paquete 2 - $120')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/S8iuyik.jpeg" onclick="ampliarImagen(this.src)"><h3>Paquete 3</h3><p>Precio: $60</p><button onclick="agregarCarrito('Paquete 3 - $60')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/iJ0uKqi.jpeg" onclick="ampliarImagen(this.src)"><h3>Paquete 4</h3><p>Precio: $80</p><button onclick="agregarCarrito('Paquete 4 - $80')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/QpBQk4j.jpeg" onclick="ampliarImagen(this.src)"><h3>Paquete 5</h3><p>Precio: Contactar</p><button onclick="agregarCarrito('Paquete 5 - Contactar')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/RBR07au.jpeg" onclick="ampliarImagen(this.src)"><h3>Paquete 6</h3><p>Precio: $70</p><button onclick="agregarCarrito('Paquete 6 - $70')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/kjs21T6.jpeg" onclick="ampliarImagen(this.src)"><h3>Paquete 7</h3><p>Precio: $50</p><button onclick="agregarCarrito('Paquete 7 - $50')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/kovfRMW.jpeg" onclick="ampliarImagen(this.src)"><h3>Paquete 8</h3><p>Precio: $80</p><button onclick="agregarCarrito('Paquete 8 - $80')">Agregar</button></div>
+      <div class="card"><img src="https://i.imgur.com/WhhJ0lI.jpeg" onclick="ampliarImagen(this.src)"><h3>Paquete 9</h3><p>Precio: $80</p><button onclick="agregarCarrito('Paquete 9 - $80')">Agregar</button></div>
     </div>
   </section>
 
@@ -233,6 +299,13 @@
     <span class="close" onclick="cerrarModal()">&times;</span>
     <img class="modal-content" id="imagenAmpliada">
   </div>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/13052822608?text=Hola,%20quiero%20una%20sorpresa%20con%20Osita%20Love" 
+     class="whatsapp-float" target="_blank">
+	  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+	  alt="WhatsApp" style="width:35px;height:35px;margin-top:12px;">
+ </a>
 
   <script>
     let carrito = [];
@@ -281,8 +354,30 @@
         modal.style.display = "none";
       }
     }
+
+    // Cuenta regresiva (San Valentín 2026)
+    const targetDate = new Date("Feb 14, 2026 00:00:00").getTime();
+    const countdown = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("timer").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("timer").innerHTML = "¡Llegó el día del amor! ??";
+      }
+    }, 1000);
   </script>
 </body>
 </html>
+
+
 
 
